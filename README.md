@@ -2,7 +2,9 @@
 
 This repository contains a complete ML Ops pipeline for digit classification using Logistic Regression, implemented with GitHub Actions for continuous integration and deployment.
 
-**Testing Framework Active** - This branch contains the testing framework implementation.
+
+**Training Pipeline Active** - This branch contains the training pipeline implementation.
+
 
 ## Project Structure
 
