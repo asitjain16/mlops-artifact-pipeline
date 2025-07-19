@@ -26,4 +26,5 @@ jobs:
         
     - name: Run tests
       run: |
-        pytest tests/ -v 
+        cd ${{ github.workspace }}
+        python -m pytest tests/ -v 
