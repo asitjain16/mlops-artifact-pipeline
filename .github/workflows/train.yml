@@ -24,8 +24,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Test imports
+      run: |
+        cd ${{ github.workspace }}
+        python test_imports.py
+        
     - name: Run training
       run: |
+        cd ${{ github.workspace }}
         python src/train.py
         
     - name: Upload model artifact

@@ -24,9 +24,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Test imports
+      run: |
+        cd ${{ github.workspace }}
+        python test_imports.py
+        
     - name: Run tests
       run: |
-        pytest tests/ -v
+        cd ${{ github.workspace }}
+        python -m pytest tests/ -v
 
   train:
     runs-on: ubuntu-latest
@@ -46,8 +52,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Test imports
+      run: |
+        cd ${{ github.workspace }}
+        python test_imports.py
+        
     - name: Run training
       run: |
+        cd ${{ github.workspace }}
         python src/train.py
         
     - name: Upload model artifact
@@ -75,6 +87,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Test imports
+      run: |
+        cd ${{ github.workspace }}
+        python test_imports.py
+        
     - name: Download model artifact
       uses: actions/download-artifact@v3
       with:
@@ -83,4 +100,5 @@ jobs:
         
     - name: Run inference
       run: |
+        cd ${{ github.workspace }}
         python src/inference.py 
